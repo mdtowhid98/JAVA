@@ -14,7 +14,8 @@ public class LeapYear {
         
         
       boolean leapYear=(year%4==0||year%400==0);
-        System.out.println("the leap year is "+leapYear);
+
+      System.out.println("the leap year is "+leapYear);
         }
     }
     
