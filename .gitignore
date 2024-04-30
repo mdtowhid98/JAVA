@@ -20,6 +20,16 @@
 /TestStringFacebook/build/
 /ClassWork/nbproject/private/
 /ClassWork/build/
+<<<<<<< HEAD
+/DoWhileLoop/nbproject/private/
+/DoWhileLoop/build/
+/GuseingNumber/nbproject/private/
+/GuseingNumber/build/
+/JavaApplication16/nbproject/private/
+/JavaApplication16/build/
+/Prime/nbproject/private/
+/Prime/build/
+=======
 /GmailSystem/build/
 /GmailSystem/nbproject/private/
 /LetterGrade/build/
@@ -32,3 +42,10 @@
 /VowelConsonant/nbproject/private/
 /YearMonthLastDate/build/
 /YearMonthLastDate/nbproject/private/
+>>>>>>> fcd2eda1f18d1e0412c149facc3ef2bf7ab4c32e
+/Breack&Continue/nbproject/private/
+/Breack&Continue/build/
+/MethodPrime/nbproject/private/
+/MethodPrime/build/
+/RandomTest/nbproject/private/
+/RandomTest/build/
