@@ -5,7 +5,13 @@ import java.util.Date;
 
 
 public abstract class Geomatry {
+<<<<<<< HEAD
      private String color="white";
+=======
+   
+    
+    private String color="white";
+>>>>>>> 1f66b498d7f22f5d1f620f5ebb1f6254ae8bce58
   private boolean filled;
   private Date datecreated;
 

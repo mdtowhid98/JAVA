@@ -1,45 +1,39 @@
-<<<<<<< HEAD
-
 package geomatry;
 
-
-public class Rectangle {
-    
-=======
-package geomatry;
+import java.util.Date;
 
 public class Rectangle extends Geomatry {
 
-    private double length;
-    private double width;
+    private int length;
+    private int width;
 
     public Rectangle() {
     }
 
-    public Rectangle(double length, double width) {
+    public Rectangle(int length, int width) {
         this.length = length;
         this.width = width;
     }
 
-    public Rectangle(double length, double width, boolean filled, String color) {
-        super(filled, color);
+    public Rectangle(int length, int width, boolean filled, Date createDate) {
+        super(filled, createDate);
         this.length = length;
         this.width = width;
     }
 
-    public double getLength() {
+    public int getLength() {
         return length;
     }
 
-    public void setLength(double length) {
+    public void setLength(int length) {
         this.length = length;
     }
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
@@ -53,5 +47,4 @@ public class Rectangle extends Geomatry {
         return 2 * (length + width);
     }
 
->>>>>>> 1f66b498d7f22f5d1f620f5ebb1f6254ae8bce58
 }
