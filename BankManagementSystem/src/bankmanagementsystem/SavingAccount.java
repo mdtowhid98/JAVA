@@ -29,7 +29,7 @@ public class SavingAccount extends BankAccount{
       
             balance += amount;
             System.out.println("Deposited: " + amount);
-//            System.out.println("Current balance: " + balance);
+            System.out.println("Current balance: " + balance);
       
     }
 

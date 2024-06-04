@@ -27,6 +27,8 @@ Scanner scanner=new Scanner(System.in);
         if(withdrawAmount>1000){
             System.out.println("Fee tk "+withdrawAmount*.10);
             System.out.println(withdrawAmount+withdrawAmount*.10);
+            System.out.println("New balance");
+            System.out.println(initialBalance+depositamount-(withdrawAmount+withdrawAmount*.10));
             
         }
         else{
@@ -37,6 +39,7 @@ Scanner scanner=new Scanner(System.in);
         account.withdraw(withdrawAmount);
           System.out.println("Your interest");
         account.caculateInterest(initialBalance*0.10);
+        System.out.println(initialBalance+depositamount-(withdrawAmount+withdrawAmount*.10)+initialBalance*0.10);
         
         
     }
