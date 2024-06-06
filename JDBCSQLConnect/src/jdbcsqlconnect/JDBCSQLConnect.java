@@ -20,22 +20,26 @@ public class JDBCSQLConnect {
     
     public static void main(String[] args) {
         
-    Student student=new Student();
-    
-    List<Student>studentList=getById(3);
-    
-    student.setName(studentList.get(0).getName());
-    student.setEmail("wexcrbyunim,ol.;[[");
-    student.setAddress(studentList.get(0).getAddress());
-    student.setCell(studentList.get(0).getCell());
-     student.setId(studentList.get(0).getId());
+//    Student student=new Student();
+//    
+//    List<Student>studentList=getById(3);
+//    
+//    student.setName(studentList.get(0).getName());
+//    student.setEmail("wexcrbyunim,ol.;[[");
+//    student.setAddress(studentList.get(0).getAddress());
+//    student.setCell(studentList.get(0).getCell());
+//     student.setId(studentList.get(0).getId());
+//     
+//     
+//        editData(student);
+//        showData();
      
+     saveData();
+     showData();
      
+     Student student=new Student(4, "werxsgv", "crfgvy", "4sexcfgh", "+968");
         editData(student);
         showData();
-     
-     
-     
      
     }
     
@@ -117,38 +121,38 @@ public class JDBCSQLConnect {
         
     }
     
-    public static List<Student>getById(int id){
-    
-        List<Student>list=new ArrayList<>();
-        
-        String sql="select * from student where id=?";
-        
-        try {
-            ps=db.getCon().prepareStatement(sql);
-            
-            ps.setInt(1, id);
-            
-            rs=ps.executeQuery();
-            
-            while(rs.next()){
-            
-                Student s=new Student(
-                        rs.getInt("id"), 
-                        rs.getString("name"), 
-                        rs.getString("email"), 
-                        rs.getString("address"), 
-                        rs.getString("cell")
-                );
-              
-            list.add(s);
-            }
-            
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(JDBCSQLConnect.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    return list;
-    }
+//    public static List<Student>getById(int id){
+//    
+//        List<Student>list=new ArrayList<>();
+//        
+//        String sql="select * from student where id=?";
+//        
+//        try {
+//            ps=db.getCon().prepareStatement(sql);
+//            
+//            ps.setInt(1, id);
+//            
+//            rs=ps.executeQuery();
+//            
+//            while(rs.next()){
+//            
+//                Student s=new Student(
+//                        rs.getInt("id"), 
+//                        rs.getString("name"), 
+//                        rs.getString("email"), 
+//                        rs.getString("address"), 
+//                        rs.getString("cell")
+//                );
+//              
+//            list.add(s);
+//            }
+//            
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(JDBCSQLConnect.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    return list;
+//    }
     
     
 }
