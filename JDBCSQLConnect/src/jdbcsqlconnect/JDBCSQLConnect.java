@@ -22,10 +22,10 @@ public class JDBCSQLConnect {
         
     Student student=new Student();
     
-    List<Student>studentList=getById(1);
+    List<Student>studentList=getById(3);
     
     student.setName(studentList.get(0).getName());
-    student.setEmail("4ed5gyuh@rctbuynmio");
+    student.setEmail("wexcrbyunim,ol.;[[");
     student.setAddress(studentList.get(0).getAddress());
     student.setCell(studentList.get(0).getCell());
      student.setId(studentList.get(0).getId());
