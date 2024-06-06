@@ -1,9 +1,12 @@
 
 package jdbcsqlconnect;
 
+import entity.Student;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,11 +15,33 @@ public class JDBCSQLConnect {
 
     static PreparedStatement ps;
     static ResultSet rs;
+    static DbUtil db=new DbUtil();
+    
+    
     public static void main(String[] args) {
         
-     DbUtil db=new DbUtil();
+    Student student=new Student();
+    
+    List<Student>studentList=getById(1);
+    
+    student.setName(studentList.get(0).getName());
+    student.setEmail("4ed5gyuh@rctbuynmio");
+    student.setAddress(studentList.get(0).getAddress());
+    student.setCell(studentList.get(0).getCell());
+     student.setId(studentList.get(0).getId());
      
-     String insertSql="insert into student(name,email,address,cell) values(?,?,?,?)";
+     
+        editData(student);
+        showData();
+     
+     
+     
+     
+    }
+    
+    public static void saveData(){
+    
+    String insertSql="insert into student(name,email,address,cell) values(?,?,?,?)";
         try {
             ps=db.getCon().prepareStatement(insertSql);
             ps.setString(1, "Towhid");
@@ -32,6 +57,13 @@ public class JDBCSQLConnect {
             Logger.getLogger(JDBCSQLConnect.class.getName()).log(Level.SEVERE, null, ex);
         }
       
+    
+    
+    
+    }
+    
+    public static void showData(){
+    
      String selectsql="select * from student";
      
         try {
@@ -56,10 +88,67 @@ public class JDBCSQLConnect {
         } catch (SQLException ex) {
             Logger.getLogger(JDBCSQLConnect.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
-     
-     
-     
     }
+    
+    public static void editData(Student s){
+    
+    String sql="update student set name=?,email=?,address=?,cell=? where id=?";
+    
+        try {
+            ps=db.getCon().prepareStatement(sql);
+            
+            ps.setString(1, s.getName());
+            ps.setString(2, s.getEmail());
+            ps.setString(3, s.getAddress());
+            ps.setString(4, s.getCell());
+            ps.setInt(5, s.getId());
+            
+            ps.executeUpdate();
+            ps.close();
+            db.getCon().close();
+            
+            System.out.println("Edit successfully");
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(JDBCSQLConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    
+    public static List<Student>getById(int id){
+    
+        List<Student>list=new ArrayList<>();
+        
+        String sql="select * from student where id=?";
+        
+        try {
+            ps=db.getCon().prepareStatement(sql);
+            
+            ps.setInt(1, id);
+            
+            rs=ps.executeQuery();
+            
+            while(rs.next()){
+            
+                Student s=new Student(
+                        rs.getInt("id"), 
+                        rs.getString("name"), 
+                        rs.getString("email"), 
+                        rs.getString("address"), 
+                        rs.getString("cell")
+                );
+              
+            list.add(s);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(JDBCSQLConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return list;
+    }
+    
     
 }
