@@ -36,9 +36,11 @@ public class Connect {
         editData(s);
         showData();
         
-        Student s1=new Student();
-        s1.setId(2);
-        deleteData(s1);
+//        Student s1=new Student();
+//        s1.setId(2);
+//        deleteData(s1);
+
+        deleteData(1);
         
         System.out.println("after deleting data");
         showData();
@@ -142,13 +144,13 @@ public class Connect {
         return list;
     }
     
-    public static void deleteData(Student s){
+    public static void deleteData(int id){
     
     String sql="delete from student where id=?";
     
         try {
             ps=db.getCon().prepareStatement(sql);
-            ps.setInt(1,s.getId());
+            ps.setInt(1,id);
             
             ps.executeUpdate();
             ps.close();
